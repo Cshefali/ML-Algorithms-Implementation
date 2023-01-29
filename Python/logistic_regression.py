@@ -1,5 +1,6 @@
 ##LOGISTIC REGRESSION 
 ##Predicting whether a student will be admitted in a university based on marks in 2 subjects
+## The model output also demonstrates the problem of overfitting. Resolved in script with regularizatio.
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -143,7 +144,7 @@ y_train = np.array([1, 0, 1, 0, 0, 1, 1, 0])
 #print("Training samples before normalizing", x_train)
 
 #normalizing the training samples
-x_train = normalize_data(x_train)
+x_train_norm = normalize_data(x_train)
 
 #print("Training data after normalizing", x_train)
 
@@ -155,7 +156,7 @@ w = np.array([2, 5])
 b = 3
 
 #calling gradient descent
-J_history, final_w, final_b = gradient_descent(x_train, y_train, w, b, alpha, iters)
+J_history, final_w, final_b = gradient_descent(x_train_norm, y_train, w, b, alpha, iters)
 
 print("Final weights and bias value:")
 print(f"Weights: {final_w}\n",f"Bias: {final_b}")
@@ -165,6 +166,9 @@ student_marks = np.array([[14, 7],
                         [17, 15],
                         [3, 11]])
 
-prediction = compute_model_output(student_marks, final_w, final_b)
+prediction_test = compute_model_output(student_marks, final_w, final_b)
+prediction_train = compute_model_output(x_train_norm, final_w, final_b)
 
-print(f"Marks of students: {student_marks}", f"Predicted Admission: {prediction}")
+print("Model output for training data:")
+print(f"training marks: {x_train}", f"\nmodel output: {prediction_train}")
+print(f"Marks of students: {student_marks}\n", f"Predicted Admission: {prediction_test}")
