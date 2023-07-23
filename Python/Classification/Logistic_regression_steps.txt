@@ -1,0 +1,24 @@
+I. Functions-
+	1. normalization function.
+	2. sigmoid function.
+	3. model output function
+	4. compute cost function.
+	5. compute gradient function.
+	6. compute gradient descent function.
+	7. Define a function that creates learning curve.
+
+II. Steps-
+	1. define datasets xtrain, ytrain.
+	2. normalize the datasets and store the mean value, standard deviation values.
+	3. initialize the parameters w and b, regulz. term lambda_, learning rate alpha, number of GD steps.
+	4. Plot the training samples for both classes in a scatter plot.
+	
+	5. call gradient descent; pass all the arguments.
+		- first run gradient descent for small steps and plot learning curve. If cost seems to decrease,
+			then increase number of iterations. (Ofc, this step is applicable to a large dataset.)
+	
+	6. Normalize the testing data samples using saved mean and sd values.
+	7. Plot the learning curve.
+	8. compute the model output for these using the final parameters w and b.
+	9. Set a threshold and compute final outputs 0 or 1 for binary classification.
+	10. Plot these test outputs too.
